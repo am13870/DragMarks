@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>drag marks</title>
+<meta name="description" content="Eight chairs on the gravel at Pier 5, Brooklyn Bridge Park.">
+<meta name="theme-color" content="#f7f6f3">
+<link rel="icon" href="img/chairs/orange-a.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<canvas id="drift" aria-hidden="true"></canvas>
+
+<header class="masthead">
+  <h1 id="wordmark">drag marks</h1>
+  <button id="aboutBtn" class="linkish" aria-expanded="false">what is this?</button>
+</header>
+
+<div id="aboutPanel" class="about" hidden>
+  <p id="aboutText"></p>
+  <p id="privacyText" class="fine"></p>
+  <p id="creditText" class="fine"></p>
+</div>
+
+<main>
+
+
+  <section id="s-pick" class="screen is-on">
+    <p class="site" id="pickSite"></p>
+    <h2 id="pickTitle"></h2>
+    <p class="help" id="pickHelp"></p>
+    <ul id="chairGrid" class="chair-grid"></ul>
+  </section>
+
+
+  <section id="s-move" class="screen">
+    <p class="speaker" id="moveGreet"></p>
+    <h2 id="moveAsk"></h2>
+    <p class="help" id="moveHelp"></p>
+    <ul id="moveList" class="move-list"></ul>
+    <button class="linkish back" data-goto="s-pick" id="backToChairs"></button>
+  </section>
+
+
+  <section id="s-still" class="screen">
+    <div class="still-wrap">
+      <img id="stillChair" class="still-chair" alt="">
+      <h2 id="stillTitle"></h2>
+      <p class="speaker wide" id="stillLine"></p>
+      <button class="btn" id="stillAgain"></button>
+      <button class="linkish" data-goto="s-pick" id="stillBack"></button>
+    </div>
+  </section>
+
+
+  <section id="s-coll" class="screen">
+    <p class="speaker" id="collLine"></p>
+    <h2 id="collTitle"></h2>
+
+    <div id="collSaid">
+      <h3 class="sect" id="collSaidH"></h3>
+      <ul id="noteList" class="note-list"></ul>
+    </div>
+
+    <div id="collSaw">
+      <h3 class="sect" id="collSawH"></h3>
+      <ul id="photoGrid" class="photo-grid"></ul>
+    </div>
+
+    <p id="collEmpty" class="help" hidden></p>
+
+
+    <div class="give">
+      <h3 id="giveTitle"></h3>
+      <p class="help" id="giveHelp"></p>
+
+      <div class="tabs" role="tablist">
+        <button class="tab is-on" id="tabText" role="tab" aria-selected="true"></button>
+        <button class="tab" id="tabPhoto" role="tab" aria-selected="false"></button>
+      </div>
+
+      <div id="paneText" class="pane">
+        <textarea id="noteInput" rows="4" maxlength="400"></textarea>
+        <p class="counter"><span id="counter">0</span>/400</p>
+      </div>
+
+      <div id="panePhoto" class="pane" hidden>
+        <label class="filedrop" for="photoInput">
+          <span id="photoPrompt"></span>
+          <input type="file" id="photoInput" accept="image/*" hidden>
+        </label>
+        <img id="photoPreview" class="preview" alt="" hidden>
+      </div>
+
+      <button class="btn" id="giveSubmit"></button>
+      <p id="giveThanks" class="thanks" hidden></p>
+      <button class="linkish" id="giveSkip"></button>
+    </div>
+
+    <button class="btn btn-wide" id="toMap"></button>
+  </section>
+
+
+  <section id="s-map" class="screen">
+    <p class="speaker" id="mapLine"></p>
+
+
+    <div class="map-head">
+      <h3 id="mapChairH"></h3>
+      <span class="date" id="mapChairDate"></span>
+    </div>
+    <div class="map-holder">
+      <canvas id="journeyCanvas"></canvas>
+    </div>
+    <p class="help" id="mapHelp"></p>
+    <button class="linkish" id="mapReset" hidden></button>
+
+    <div class="map-head">
+      <h3 id="mapTodayH"></h3>
+      <span class="date" id="mapTodayDate"></span>
+    </div>
+    <div class="map-holder">
+      <canvas id="mapCanvas"></canvas>
+    </div>
+    <p class="help" id="mapAllHelp"></p>
+
+    <h3 class="sect" id="mapPastH"></h3>
+    <ul id="pastList" class="past-list"></ul>
+    <p class="fine" id="mapRaked"></p>
+
+    <button class="btn btn-wide" id="again"></button>
+  </section>
+
+</main>
+
+
+<div id="lightbox" class="lightbox" hidden>
+  <button id="lightboxClose" class="lightbox-close" aria-label="close">×</button>
+  <img id="lightboxImg" alt="">
+  <p id="lightboxNote" hidden></p>
+  <p id="lightboxCap"></p>
+</div>
+
+<script src="data/copy.js"></script>
+<script src="data/chairs.js"></script>
+<script src="data/messages.js"></script>
+<script src="data/journeys.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
